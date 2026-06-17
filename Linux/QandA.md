@@ -19,8 +19,8 @@ https://sadservers.com/scenario/saskatoon
 
 https://sadservers.com/newserver/taipei
 
-- Port Knocking (Single Knock) {https://www.twingate.com/blog/glossary/port%20knocking}
-  Unlock access to port 80 by sending traffic to a hidden port.
+- Port Knocking (Single Knock) https://www.twingate.com/blog/glossary/port%20knocking
+- Unlock access to port 80 by sending traffic to a hidden port.
 
 Steps:
 - `ss -lntp`          # Check listening ports
