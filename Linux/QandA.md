@@ -35,3 +35,11 @@ Firewall Rule Changes
         ↓
 Port 80 Opens
 ```
+
+### Question 4
+
+https://sadservers.com/newserver/lhasa
+
+awk command resources : https://www.geeksforgeeks.org/linux-unix/awk-command-unixlinux-examples/
+
+- `awk ' { sum += $2 } END { avg=sum/NR ; print "Average: " avg } ' scores.txt`
