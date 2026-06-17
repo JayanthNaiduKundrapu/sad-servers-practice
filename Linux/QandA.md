@@ -16,3 +16,20 @@ https://sadservers.com/scenario/saskatoon
 
 
 ### Question 3
+
+https://sadservers.com/newserver/taipei
+
+- Port Knocking (Single Knock)
+  Unlock access to port 80 by sending traffic to a hidden port.
+
+Steps:
+- ss -lntp          # Check listening ports
+- nmap -p- localhost # Find all open ports
+- curl localhost:<port>  # Test suspicious ports (sends TCP SYN)
+- curl localhost    # Check if port 80 unlocked
+
+TCP SYN → Hidden Port
+        ↓
+Firewall Rule Changes
+        ↓
+Port 80 Opens
