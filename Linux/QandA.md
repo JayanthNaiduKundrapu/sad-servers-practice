@@ -43,3 +43,19 @@ https://sadservers.com/newserver/lhasa
 awk command resources : https://www.geeksforgeeks.org/linux-unix/awk-command-unixlinux-examples/
 
 - `awk ' { sum += $2 } END { avg=sum/NR ; print "Average: " avg } ' scores.txt`
+
+
+### Question 5
+
+https://sadservers.com/newserver/bucharest
+
+```bash
+sudo vi /etc/postgresql/13/main/pg_hba.conf
+
+add this to allow connection:
+
+host   app1    app1user        all     trust
+```
+
+- `sudo systemctl restart postgresql`
+- `PGPASSWORD=app1user psql -h 127.0.0.1 -d app1 -U app1user -c '\q'`
