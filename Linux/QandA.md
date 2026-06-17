@@ -28,10 +28,10 @@ Steps:
 - `curl localhost:<port>`  # Test suspicious ports (sends TCP SYN)
 - `curl localhost`    # Check if port 80 unlocked
 
-'''bash
+```bash
 TCP SYN → Hidden Port
         ↓
 Firewall Rule Changes
         ↓
 Port 80 Opens
-'''
+```
