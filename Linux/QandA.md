@@ -59,3 +59,9 @@ host   app1    app1user        all     trust
 
 - `sudo systemctl restart postgresql`
 - `PGPASSWORD=app1user psql -h 127.0.0.1 -d app1 -U app1user -c '\q'`
+
+### Question 6
+
+https://sadservers.com/newserver/bata
+
+- `grep -ir "secret:" ../../proc/sys`
