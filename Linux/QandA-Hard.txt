@@ -75,3 +75,21 @@ Solution:
 
 - dns is missing in hosts filed in /etc/nsswitch.conf, add it back and ping
 - solution worked.
+
+----------------------------------------------------------------------------------------------------------------
+
+Question:
+https://sadservers.com/scenario/singara
+
+Solution:
+
+- to understand whats happening do describe, docker images, check yaml files ; then -
+- Modify the ports in deployment.yaml and nodeport.yaml to 8888
+- remove or change image pull policy to IfNotPresent
+- modify image to webapp:latest in deployment.yaml
+- import the image from docker images to containerd (sudo docker save webapp:latest | sudo k3s ctr images import -)
+- verify : sudo k3s ctr images ls | grep web
+- now kubectl apply -f deployment.yaml -f nodeport.yaml
+- kubectl logs of the podname
+- kubectl port-forward -n web pod/webapp-deployment-767d49449c-4j2wz 8888:8888
+- test curl localhost:8888
