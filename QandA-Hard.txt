@@ -74,7 +74,7 @@ Solution:
                              ping prints reply
 
 - dns is missing in hosts filed in /etc/nsswitch.conf, add it back and ping
-- solution worked.
+- test, solution worked.
 
 ----------------------------------------------------------------------------------------------------------------
 
