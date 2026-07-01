@@ -5,7 +5,7 @@ Solution:
 - find the pid of the process, file being used
 - now restore that file if deleted, and see the logic
 - go to /proc/pid and get info from environ for secret
-- test and submit
+- test using curl and submit
 
 -----------------------------------------------------------------------------------------
 Question:
@@ -93,3 +93,15 @@ Solution:
 - kubectl logs of the podname
 - kubectl port-forward -n web pod/webapp-deployment-767d49449c-4j2wz 8888:8888
 - test curl localhost:8888
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Question: 
+https://sadservers.com/scenario/bern
+
+Solution:
+
+- find the ip of the mariadb container by exec into container and hostname -I
+- run " sudo docker exec wordpress mysqladmin -h ipaddress -u root -ppassword ping "  } this works
+- so both are on same network - so now exec into the wordpress, add a field for /etc/hosts (ipaddress mysql) and restart it 
+- now run " sudo docker exec wordpress mysqladmin -h mysql -u root -ppassword ping " it works
