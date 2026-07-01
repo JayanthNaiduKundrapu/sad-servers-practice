@@ -1,0 +1,77 @@
+Question:
+https://sadservers.com/scenario/monaco
+Solution:
+- ss -lntp | grep 5000
+- find the pid of the process, file being used
+- now restore that file if deleted, and see the logic
+- go to /proc/pid and get info from environ for secret
+- test and submit
+
+-----------------------------------------------------------------------------------------
+Question:
+https://sadservers.com/scenario/jakarta
+Solution:
+                    USER
+                      │
+                      ▼
+             ping google.com
+                      │
+                      ▼
+          libc (getaddrinfo())
+                      │
+                      ▼
+           /etc/nsswitch.conf
+                      │
+      ┌───────────────┴───────────────┐
+      │                               │
+      ▼                               ▼
+  /etc/hosts                 DNS Resolver
+                                      │
+                                      ▼
+                          systemd-resolved
+                                      │
+                         (DNS cache + stub resolver)
+                                      │
+                                      ▼
+                            /etc/resolv.conf
+                                      │
+                                      ▼
+                          Configured DNS Server
+                    (Router / ISP / 8.8.8.8 / 1.1.1.1)
+                                      │
+                                      ▼
+                          Returns Google IP
+                                      │
+                                      ▼
+                           ping now has an IP
+                                      │
+                                      ▼
+                           Linux Kernel
+                                      │
+                                      ▼
+                           Routing Table
+                             (/proc, ip route)
+                                      │
+                                      ▼
+                       Default Gateway (Router)
+                                      │
+                                      ▼
+                           Switch / WiFi AP
+                                      │
+                                      ▼
+                                Internet
+                                      │
+                                      ▼
+                             Google Network
+                                      │
+                                      ▼
+                              ICMP Reply
+                                      │
+                                      ▼
+                               Your Kernel
+                                      │
+                                      ▼
+                             ping prints reply
+
+- dns is missing in hosts filed in /etc/nsswitch.conf, add it back and ping
+- solution worked.
